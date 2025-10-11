@@ -11,6 +11,12 @@ public class Sketch extends PApplet {
     public void draw (){
         background(200);
     }
+    public void setup(){
+        //background color
+        background(200);
+        pixelDensity(1);
+    }
+
     public static void main(String[] args) {
         //tells main class to run the stuff in MySketch class
         PApplet.main("Sketch");
