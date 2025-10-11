@@ -19,6 +19,7 @@ public class Dog {
     }
     //draws the dog image if image not already on screen
     public void draw(PApplet p){
+        //makes sure the image exists before drawing it
         if (img!= null)
             p.image(img, x, y, size, size);
     }
