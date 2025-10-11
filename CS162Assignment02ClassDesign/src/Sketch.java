@@ -1,5 +1,6 @@
 //Assignment number 2
-//Neona Prado
+//Date:10/11/25
+//Author: Neona Prado
 //Project that creates a random movement when clicking on a dog object 
 import processing.core.PApplet;
 public class Sketch extends PApplet {
@@ -21,8 +22,14 @@ public class Sketch extends PApplet {
         dog.draw(this);
     }
 
+    //show when mouse is pressed
     public void mousePressed(){
         System.out.println("mouse pressed");
+        if (mouseX > dog.x && mouseX < dog.x + 100
+        && mouseY > dog.y && mouseY < dog.y +100){
+            System.out.println("dog clicked");
+            dog.move(this);
+        }
     }
 
     public static void main(String[] args) {
