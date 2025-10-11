@@ -1,39 +1,26 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Dog extends PApplet{
+public class Dog {
     //where to draw dog
     float x, y;
     //dog picture
-    PImage image;
-    float size;
-    float xSpeed;
-    float ySpeed;
-    Sketch mySketch;
     PImage img;
+    float size = 100;
 
-    public Dog(PApplet p, float x, float y, Sketch mySketch){
+    //dog constructor
+    public Dog(PApplet p, float x, float y){
+        //set the location
         this.x = x;
         this.y = y;
-            
-        size = mySketch.random(10, 100);
-        xSpeed = mySketch.random(-10, 10);
-        ySpeed = mySketch.random(-10, 10);
-        this.mySketch = mySketch;
-    }
-    public void draw(PApplet p){
-        p.image(img, x, y, size, size);
-    }
-    public void move(){
-        x += xSpeed;
-        if(x < 0 || x > mySketch.width){ 
-            xSpeed *= -1;
-        }
+        //pull image from data folder
+        img = p.loadImage("dog.png");
 
-        y += ySpeed;
-        if(y < 0 || y > mySketch.height){
-            ySpeed *= -1;
-        }
+    }
+    //draws the dog image if image not already on screen
+    public void draw(PApplet p){
+        if (img!= null)
+            p.image(img, x, y, size, size);
     }
    
 
