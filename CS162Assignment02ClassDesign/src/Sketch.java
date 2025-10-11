@@ -21,6 +21,10 @@ public class Sketch extends PApplet {
         dog.draw(this);
     }
 
+    public void mousePressed(){
+        System.out.println("mouse pressed");
+    }
+
     public static void main(String[] args) {
         //tells main class to run the stuff in MySketch class
         PApplet.main("Sketch");
