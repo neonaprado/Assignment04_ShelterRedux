@@ -1,9 +1,0 @@
-{
-    "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "./lib/*.jar",
-        // Add your path to core.jar here
-        // "c:/Users/hubbar_ji/Documents/CS162/processing-4.0.1/core/library/core.jar"
-    ]
-}
