@@ -11,7 +11,7 @@ import processing.core.PApplet;
 public class App {
     public static void main(String[] args) throws Exception {
         MySketch mySketch = new MySketch();
-	    String[] processingArgs = {"TODO: Your Name's Sketch"};
+	    String[] processingArgs = {"Neona's Sketch"};
 	    PApplet.runSketch(processingArgs, mySketch);
     }               
 }

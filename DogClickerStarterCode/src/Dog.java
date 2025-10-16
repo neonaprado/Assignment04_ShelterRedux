@@ -18,55 +18,39 @@ public class Dog {
     /* Assign values to all the instance variables in the constructor */
     public Dog(PApplet mySketch, int screenWidth, int screenHeight) {
         this.mySketch = mySketch;
-        img = mySketch.loadImage("../assets/dog.png");
-       //TODO: assign x to a random location on the canvas  
-       //TODO: assign x to a random location on the canvas
+        img = mySketch.loadImage("assets/dog.png");
         x = mySketch.random(screenWidth - img.width);
         y = mySketch.random(screenHeight - img.height); 
     }
 
     /* Draws the dog */
     public void draw() {
-        //TODO: draw the dog on the sketch
+        
         mySketch.image(img,x,y);
     }
-
-    /* Test to see of the x and y location parameters are inside the dog's boundaries */
-    /* returns true if x,y is inside the dog, otherwise returns false.
-     * Note: y increases going down - weird but true!
-     */
-    public boolean isSelected(int x, int y) {
-        //TODO: return true if the x and y are within the dog's boundaries
-        if (x>= this.x && x <= this.x + img.width && y >= this.y && y <= this.y + img.height){
-            return true;
+    // detects the edges of the dog image 
+    public boolean isSelected(int mouse_X, int mouse_Y) {
+        if (mouse_X  <= rightEdge() && mouse_X >= leftEdge() && mouse_Y >= topEdge() && mouse_Y <= bottomEdge()){
+            return (true);
         }
-        return false;
+        return(false);  
     }
 
-    /* Returns the location of the right edge of the dog object */
-    /* Call this is your isSelected method to tell you the right edge of the dog.
-     * To find the width of the image, use "theNameOfYourPImageVariable.width"
-     */
-    //private float rightEdge(){
-        //TODO: return the location of the right edge of the dog
-    //}
-    /* Returns the location of the left edge of the dog object */
-    /* Call this is your isSelected method to tell you the left edge of the dog */
-    //private float leftEdge(){
-        //TODO: return the location of the left edge of the dog
-        
-    //}
-    /* Returns the location of the top edge of the dog object */
-    /* Call this is your isSelected method to tell you the top edge of the dog. */
-    //private float topEdge(){
-        //TODO: return the location of the top edge of the dog   
-    //}
-    /* Returns the location of the top edge of the dog object */
-    /* Call this is your isSelected method to tell you the bottom edge of the dog.
-     * To find the height of the image, use "theNameOfYourPImageVariable.height
-     */
-    //private float bottomEdge(){
-        //TODO: return the location of the bottom edge of the dog  
-    //}
+    private float rightEdge(){
+        return (x + img.width);
+
+    }
+    private float leftEdge(){
+        return(x);
+
+    }
+    private float topEdge(){
+         return (y); 
+    }
+    private float bottomEdge(){
+         return (y + img.height); 
+    }
+
+
     
 }
