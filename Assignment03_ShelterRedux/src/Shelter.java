@@ -47,14 +47,7 @@ public class Shelter {
      */
     public void adopt(Animal animal) {
         // TODO: implement this method. You may need to move the placement of remaining animals?
-        /**
-         * int idx = animals.indexOF(animal)
-         * if idx < 0 return
-         * animals remove (idx)
-         *  animal a = animals get(i)
-         *  a.setY (entry Y size + sentry Y size * i)
-         * 
-         */
+        animals.remove(animal);
     }
 
     /**

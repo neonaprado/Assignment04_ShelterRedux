@@ -84,8 +84,8 @@ public class Animal {
      * @param sound 
 
      */
-    public void playSound(){
-        sound.play();
+    public void setSound(SoundFile s){
+        this.sound = s;
     }
    
     public boolean isHearClicked(PApplet sketch){
@@ -95,7 +95,11 @@ public class Animal {
         int hearY = adoptY;
         return hearButton.isInButton(sketch.mouseX, sketch.mouseY, hearX, hearY);
     }
-    hearButton.draw(sketch, x + img.width + PADDING, y + img.height / 2);
+
+    public void playSound(){
+        if (sound != null);
+            sound.play();
+    }
 
     /**
      * Draws the animal at the current X and Y coordinates.
@@ -112,6 +116,11 @@ public class Animal {
 
         // Draw the button centered on the image
         button.draw(sketch, x + img.width + PADDING, y + img.height / 2);
+        int adoptX = x + img.width + PADDING;
+        int adoptY = y + img.height /2;
+        int hearX = adoptX + HEAR_DIST_X;
+        int hearY = adoptY;
+        hearButton.draw(sketch, hearX, hearY);
     }
 
     public String toString() {
