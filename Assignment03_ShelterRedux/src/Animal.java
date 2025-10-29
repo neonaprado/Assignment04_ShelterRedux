@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.sound.SoundFile;
 
 /**
  * An animal that can be put in a shelter and be adopted.
@@ -8,7 +9,8 @@ public class Animal {
    
     private static final int INFO_TEXT_SIZE = 13;
     private static final int PADDING = 10;
-
+    //distance between adopt and hear buttons
+    private final static int HEAR_DIST_X = 120;
     protected String type;
     protected String name;
     protected int age;
@@ -20,6 +22,10 @@ public class Animal {
     //make new button for hearME
     //add the soundfile
     //need a constant for the distance b/w adopt me button and hear me button
+    protected Button hearButton = new Button("Hear Me");
+    protected SoundFile sound;
+    
+    
 
     /**
      * Creates a new animal.
