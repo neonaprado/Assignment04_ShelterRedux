@@ -82,27 +82,20 @@ public class Animal {
     /**
      * 
      * @param sound 
-     * // public void setSound(soundfile ?){
-     * this.sound = s;}
+
      */
-
-     //add true id the hear me button if pressed
-     /*
-      * public boolean hearisclicked(papplet)
-        adopt X x + imagewidth + constanst for distance
-        adopt Y "" + ""height /2
-        hear X = adopt X + constant for the hear gap
-        hear y = adopt y
-
-        return if the hearbutton isinbutton detect(mouseX, mouseY, hearX, hear Y)
-      */
-    /*
-     * add something to play sound if there
-     *  if sound id not null
-     *      then: sound.play()
-     */
-
-    // button.draw(sketch, x + image width, distance constant, y + image height /2);
+    public void playSound(){
+        sound.play();
+    }
+   
+    public boolean isHearClicked(PApplet sketch){
+        int adoptX = x + img.width + PADDING;
+        int adoptY = y + img.height /2;
+        int hearX = adoptX + HEAR_DIST_X;
+        int hearY = adoptY;
+        return hearButton.isInButton(sketch.mouseX, sketch.mouseY, hearX, hearY);
+    }
+    hearButton.draw(sketch, x + img.width + PADDING, y + img.height / 2);
 
     /**
      * Draws the animal at the current X and Y coordinates.
