@@ -116,6 +116,7 @@ public class Animal {
 
         // Draw the button centered on the image
         button.draw(sketch, x + img.width + PADDING, y + img.height / 2);
+
         int adoptX = x + img.width + PADDING;
         int adoptY = y + img.height /2;
         int hearX = adoptX + HEAR_DIST_X;

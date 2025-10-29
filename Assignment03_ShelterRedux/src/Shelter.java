@@ -1,6 +1,5 @@
 import processing.core.PApplet;
 import java.util.ArrayList;
-import processing.sound.SoundFile;
 
 /**
  * Represents an animal shelter. Animals can be intaken or adopted.
@@ -47,11 +46,15 @@ public class Shelter {
      */
     public void adopt(Animal animal) {
         // TODO: implement this method. You may need to move the placement of remaining animals?
-        int i = animals.indexOf(animal);
-        if (i < 0)
+        int ind = animals.indexOf(animal);
+        if (ind < 0)
             return;
-        animals.remove(i);
+        animals.remove(ind);
 
+        for (int i = ind; i < animals.size(); i ++){
+            Animal a = animals.get(i);
+            a.setY(ENTRY_Y_SIZE + ENTRY_Y_SIZE * i);
+        }
     }
 
     /**
