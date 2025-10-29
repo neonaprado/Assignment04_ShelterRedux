@@ -10,50 +10,22 @@ public class MySketch extends PApplet {
     
     private static final int BACKGROUND_COLOR = 122;
     private static final int FONT_SIZE = 12;
-
-    // TODO: remove all these arrays and make the program work by reading in the contents of data.txt instead 
-    //private static final String[] dogNames = { "Scooby-Doo", "Toto", "Spuds Mackenzie", "Snoopy" };
-    //private static final String[] dogBreeds = { "Great Dane", "Cairn Terrier", "Bull Terrier", "Beagle" };
-    ///private static final int[] dogAges = { 10, 2, 7, 55 };
-    ///private static final String[] dogImages = { "assets/scoobydoo_small.png", "assets/toto_small.png", 
-           // "assets/spuds_small.png", "assets/snoopy_small.png" };
-    private int loadAnimalFiles(){
-        String [] lines = loadStrings("assets/data.txt");
-        int count = 0;
-
-        for (String line : lines){
-            String[] f = line.split(",");
-            String name = f[0];
-            String breed = f[1];
-            int age = Integer.parseInt(f[2]);
-            PImage img = loadImage(f[3]);
-            SoundFile sound = new SoundFile(this, f[4]);
-            Dog dog = new Dog(name, breed, age, img);
-            dog.setSound(sound);
-            shelter.intake(dog);
-            count ++;
-
-            
-        }
-        return count;
-
-    }
     
 
     private Shelter shelter;
 
     public void settings() {
-        size(500, 700);
+        size(500, 900);
     }
 
     public void setup() {
         // Set the font.
         PFont font = createFont("Arial", FONT_SIZE);
         textFont(font);
-
-        // TODO give your shelter a name!
+        //initialize shelter name and animals in shelter
         shelter = new Shelter("Neona's Rescue Shelter");
-        addAnimals();
+        loadAnimalFiles();
+
 
         // Play a welcome sound
         SoundFile welcomeSound = new SoundFile(this, "./assets/welcome.mp3");
@@ -69,10 +41,45 @@ public class MySketch extends PApplet {
         shelter.mouseClicked(this); // pass the event to the shelter
     }
 
-    private void addAnimals() {
-        for(int i=0; i<dogNames.length; i++) {
-            Dog dog = new Dog(dogNames[i], dogBreeds[i], dogAges[i], loadImage(dogImages[i]));
-            shelter.intake(dog);
+   
+
+    /**
+     * @return
+     * 
+     */
+    private int loadAnimalFiles(){
+        String[]lines = loadStrings("assets/data.txt");
+        if (lines == null){
+            return 0;
         }
-    }
+        for (String line: lines){
+            if (line == null || line.isEmpty()){
+                continue;
+            }
+            String[] f = line.split(",");
+            String type = f[0];
+            String name = f[0];
+            String breed = f[1];
+            int age = parseInt(f[2]);
+            PImage img = loadImage("assets/" + f[4]);
+            SoundFile sound = new SoundFile(this, "assets/" + f[0] + ".aiff");
+
+            Animal animal;
+            if (type.equalsIgnoreCase("dog")){
+                animal = new Dog(name,breed,age,img);
+            }
+            else if (type.equalsIgnoreCase("cat")){
+                animal = new Cat(name,breed,age,img);
+            }
+            else{
+                animal = new Fish (name,breed,age,img);
+            }
+            animal.setSound(sound);
+            shelter.intake(animal);
+
+            }
+            return lines.length;
+          
+       }
+    
 }

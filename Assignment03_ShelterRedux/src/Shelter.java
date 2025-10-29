@@ -78,7 +78,6 @@ public class Shelter {
         // Check to see if the adopt button was clicked on any animal
         for (Animal animal : animals) {
             if (animal.isAdoptClicked(sketch)) {
-                // TODO: actually adopt the animal!
                 adopt(animal);
                 System.out.println("Animal adopted -- " + animal);
                 break;

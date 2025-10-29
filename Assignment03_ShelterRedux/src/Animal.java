@@ -37,6 +37,7 @@ public class Animal {
     public Animal(String type, String name, int age, PImage img) {
         this.name = name;
         this.age = age;
+        this.type = type;
         img.resize(0, 75); // Resize image to max 75 height; keep scale by using 0 as the width.
         this.img = img; 
         button = new Button("Adopt Me");  
@@ -97,8 +98,13 @@ public class Animal {
     }
 
     public void playSound(){
-        if (sound != null);
+        if (sound != null){
             sound.play();
+        }
+        else{
+            System.out.println("No sound set for "+ name);
+        }
+        
     }
 
     /**
@@ -125,7 +131,7 @@ public class Animal {
     }
 
     public String toString() {
-        return name + ", age";
+        return name + ", " + age;
     }
  
     /**

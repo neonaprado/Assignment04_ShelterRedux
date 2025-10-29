@@ -1,5 +1,4 @@
 import processing.core.PImage;
-import processing.core.PApplet;
 
 public class Dog extends Animal {
     
