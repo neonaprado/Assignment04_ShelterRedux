@@ -47,7 +47,11 @@ public class Shelter {
      */
     public void adopt(Animal animal) {
         // TODO: implement this method. You may need to move the placement of remaining animals?
-        animals.remove(animal);
+        int i = animals.indexOf(animal);
+        if (i < 0)
+            return;
+        animals.remove(i);
+
     }
 
     /**
@@ -65,18 +69,6 @@ public class Shelter {
         for (Animal animal : animals) {
             animal.draw(sketch);
         }
-
-        //need to add a hear button next to adopt button
-        /**
-         * int hearX = animal.getX + animal img width + hear button gap
-         * int hearyY = "" .getY + "" animal im height /2 
-         *  DONT FORGET TO MAKE CONSTANTS
-         * sketch fill(smth)
-         * sketch.rect(hearX, hearY, hear width, hear height)
-         * sketch fill(smth)
-         * align the text 
-         * sketch.text("hear", need to figure out math for this still)
-         */
     }
 
     public void mouseClicked(PApplet sketch) {
@@ -84,31 +76,15 @@ public class Shelter {
         for (Animal animal : animals) {
             if (animal.isAdoptClicked(sketch)) {
                 // TODO: actually adopt the animal!
-                /**
-                 * adopt(animal)
-                 * system.out.println(Animal adopted + animal)
-                 * break; 
-                 */
+                adopt(animal);
                 System.out.println("Animal adopted -- " + animal);
-
+                break;
                 
             }
-
-            //add the detect click for the hear button
-            /**
-             * if (sketch.mouseX >= hearX and sketch.mouseX <= hearX + hearY 
-             *     and sketch.mouseY >= hearY and sketch.mouseY <= hearY + HEAR_H)
-             *     then: soundfile s = new soundfile(sketch, "get asset")
-             *     s.play() <-- check that still
-             *     break
-             */  
-            
-             //add for hear me
-             /*
-              * if animal isHearClicked (sketch)
+            if (animal.isHearClicked(sketch)){
                 animal.playSound();
                 break;
-              */
+            }
 
         }   
     } 
