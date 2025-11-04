@@ -25,6 +25,10 @@ public class Rectangle implements Relatable {
     // a method required to implement the Relatable interface
     @Override
     //TODO: Add the IsLargerThan method here
+    public int isLargerThan(Relatable other){
+        Rectangle o = (Rectangle) other;
+        return this.getArea() - o.getArea();
+    }
   
     @Override
     public String toString(){
