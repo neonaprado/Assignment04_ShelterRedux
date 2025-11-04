@@ -27,14 +27,10 @@
       }
   
     public static void main(String[] args) {
-        Rectangle r1 = new Rectangle(0, 0, 5, 4);
-        Rectangle r2 = new Rectangle(0,0,3,4);
-        
-        int cmp1 = r1.isLargerThan(r2);
-
-        System.out.println("case 1: " + r1 + " vs " + r2 + " -> cmp=" + cmp1);
-        System.out.println(cmp1 > 0 ? "first is larger" : (cmp1 < 0 ? "second is larger" : "same size"));
-
+        Rectangle r1 = new Rectangle(0, 0, 5, 4); // 20
+        Rectangle r2 = new Rectangle(0, 0, 3, 4); // 12
+        System.out.println("case 1: " + r1 + " vs " + r2);
+        reportCompare("case 1", r1, r2);
 
   }
   }
