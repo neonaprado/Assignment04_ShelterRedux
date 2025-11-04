@@ -5,6 +5,7 @@ public class Main {
         System.out.println("\n\n");
         ArrayList<Animal> zoo = new ArrayList<Animal>();
         zoo.add(new Pig());
+        zoo.add(new Dog());
         for (Animal animal: zoo) {
             animal.sound();
             animal.sleep();
