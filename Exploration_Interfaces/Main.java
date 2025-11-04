@@ -32,5 +32,13 @@
         System.out.println("case 1: " + r1 + " vs " + r2);
         reportCompare("case 1", r1, r2);
 
+
+        Rectangle r3 = new Rectangle(0, 0, 2, 3); // 6
+        Rectangle r4 = new Rectangle(0, 0, 4, 4); // 16
+        System.out.println("case 2: " + r3 + " vs " + r4);
+        reportCompare("case 2", r3, r4);
+
+
+
   }
   }
