@@ -21,6 +21,11 @@
  class Main {
   
     public static void main(String[] args) {
-      //TODO: Add the main method test code here
+        Rectangle r1 = new Rectangle(0, 0, 5, 4);
+        Rectangle r2 = new Rectangle(0,0,3,4);
+
+        System.out.println("r1 -> " + r1);
+        System.out.println("r2 -> " + r2);
+      
     }
   }
